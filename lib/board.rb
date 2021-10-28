@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'pry'
 
 class Board
   attr_reader :board
@@ -32,13 +31,9 @@ class Board
     background_color = board[x][y][:bg]
 
     if background_color == 'light'
-      return "\e[47m#{'  '}\e[0m"
+      "\e[47m#{'  '}\e[0m"
     elsif background_color == 'dark'
-      return "\e[40m#{'  '}\e[0m"
+      "\e[40m#{'  '}\e[0m"
     end
   end
 end
-
-test_board = Board.new
-test_board.display_board
-
