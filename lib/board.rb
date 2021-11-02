@@ -107,13 +107,15 @@ class Board
   def display_cell(location)
     x = location[0].to_sym
     y = location[1].to_sym
+    display_value = (@board[x][y][:here].determine_display_value << ' ') if @board[x][y][:here]
 
     background_color = board[x][y][:bg]
 
     if background_color == 'light'
-      "\e[47m#{'  '}\e[0m"
+      "\e[47m#{display_value || '  '}\e[0m"
     elsif background_color == 'dark'
-      "\e[40m#{'  '}\e[0m"
+      "\e[40m#{display_value || '  '}\e[0m"
     end
   end
+
 end
